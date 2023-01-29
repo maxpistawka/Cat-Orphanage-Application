@@ -18,3 +18,12 @@ I along with this, saw how certain cats were put into less than ideal homes, for
 another cat to live with. I felt like this problem is one that is easily compatible, and there is no better way than
 to automate it, aswell as provide even further functionality to aid in helping the orphanage, fosters, and cats.
 
+## User Stories
+
+* As a **User**, I want to be able to *create* a new foster and add it to a list of fosters
+* As a **User**, I want to be able to *create* a new cat and add it to a list of cats
+* As a **User**, I want to be able to *select* a cat and view all the compatible fosters
+* As a **User**, I want to be able to *assign* a cat to a foster
+* As a **User**, I want to be able to *select* a fostered cat and view a description of the cat as well as
+  the available adoption house times (times for the adopters to come see the cats).
+
