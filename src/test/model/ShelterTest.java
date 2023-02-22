@@ -13,10 +13,14 @@ public class ShelterTest {
     Cat cat2;
     Cat cat3;
     Cat cat4;
+    Cat cat5;
+    Cat cat6;
     Foster fos1;
     Foster fos2;
     Foster fos3;
     Foster fos4;
+    Foster fos5;
+    Foster fos6;
     Shelter shelt1;
     Shelter shelt2;
 
@@ -27,10 +31,14 @@ public class ShelterTest {
         cat2 = new Cat("lock", "sphynx", 1, 0, false, true, false);
         cat3 = new Cat("kitten", "black", 2, 4, true, false, true);
         cat4 = new Cat("kilo", "calico", 41, 11, false, false, false);
+        cat5 = new Cat("marbles", "birman", 0, 1, false, false, true);
+        cat6 = new Cat("lock", "sphynx", 1, 0, true, true, false);
         fos1 = new Foster("max", true, true, true, 10);
         fos2 = new Foster("jj", false, false, false, 3);
         fos3 = new Foster("carly", true, true, true, 7);
         fos4 = new Foster("liz", false, false, false, 1);
+        fos5 = new Foster("carly", true, true, false, 7);
+        fos6 = new Foster("liz", false, false, true, 1);
         shelt1 = new Shelter();
         shelt2 = new Shelter();
     }
@@ -76,9 +84,13 @@ public class ShelterTest {
         shelt2.addFoster(fos1);
         shelt2.addFoster(fos3);
         shelt2.addFoster(fos4);
+        shelt2.addFoster(fos5);
+        shelt2.addFoster(fos6);
         assertEquals(0, shelt1.eligibleFoster(cat1).size());
-        assertEquals(2, shelt2.eligibleFoster(cat2).size());
-        assertEquals(0, shelt2.eligibleFoster(cat3).size());
+        assertEquals(3, shelt2.eligibleFoster(cat2).size());
+        assertEquals(1, shelt2.eligibleFoster(cat3).size());
         assertEquals(2, shelt2.eligibleFoster(cat4).size());
+        assertEquals(0, shelt2.eligibleFoster(cat5).size());
+        assertEquals(6, shelt2.eligibleFoster(cat6).size());
     }
 }
