@@ -8,19 +8,28 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FosterTest {
     Cat cat1;
     Cat cat2;
+    Cat cat3;
+    Cat cat4;
     Foster fos1;
     Foster fos2;
     Foster fos3;
     Foster fos4;
+    Foster fos5;
+    Foster fos6;
 
     @BeforeEach
     void runBefore() {
         cat1 = new Cat("marbles", "birman", 0, 1, true, true, true);
         cat2 = new Cat("lock", "sphynx", 1, 0, false, true, false);
+        cat3 = new Cat("marbles", "birman", 0, 1, true, true, true);
+        cat4 = new Cat("lock", "sphynx", 1, 0, false, true, false);
         fos1 = new Foster("max", true, true, true, 10);
         fos2 = new Foster("jj", false, false, false, 3);
         fos3 = new Foster("carly", true, true, true, 7);
         fos4 = new Foster("liz", false, false, false, 1);
+        fos5 = new Foster("jason", true, true, true, 1);
+        fos6 = new Foster("mason", false, false, false, 1);
+
     }
 
     @Test
@@ -37,6 +46,20 @@ public class FosterTest {
         assertFalse(fos2.getHasDogs());
         assertEquals(0, fos1.getCurrentFosterCats().size());
         assertEquals(0, fos2.getCurrentFosterCats().size());
+    }
+
+    @Test
+    void testEligibleFos() {
+        fos6.addFosterCat(cat1);
+        fos6.addFosterCat(cat2);
+        assertFalse(fos6.eligibleFoster(cat1));
+        assertFalse(fos6.eligibleFoster(cat2));
+        fos5.addFosterCat(cat1);
+        assertFalse(fos6.eligibleFoster(cat1));
+        assertFalse(fos6.eligibleFoster(cat2));
+        fos6.addFosterCat(cat2);
+        assertFalse(fos6.eligibleFoster(cat1));
+        assertFalse(fos6.eligibleFoster(cat2));
     }
 
     @Test
