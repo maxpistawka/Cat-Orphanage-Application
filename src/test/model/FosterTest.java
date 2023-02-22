@@ -27,8 +27,8 @@ public class FosterTest {
         fos2 = new Foster("jj", false, false, false, 3);
         fos3 = new Foster("carly", true, true, true, 7);
         fos4 = new Foster("liz", false, false, false, 1);
-        fos5 = new Foster("jason", true, true, true, 1);
-        fos6 = new Foster("mason", false, false, false, 1);
+        fos5 = new Foster("carly", true, true, false, 1);
+        fos6 = new Foster("liz", false, false, true, 1);
 
     }
 
@@ -55,11 +55,25 @@ public class FosterTest {
         assertFalse(fos6.eligibleFoster(cat1));
         assertFalse(fos6.eligibleFoster(cat2));
         fos5.addFosterCat(cat1);
-        assertFalse(fos6.eligibleFoster(cat1));
-        assertFalse(fos6.eligibleFoster(cat2));
-        fos6.addFosterCat(cat2);
-        assertFalse(fos6.eligibleFoster(cat1));
-        assertFalse(fos6.eligibleFoster(cat2));
+        assertFalse(fos5.eligibleFoster(cat1));
+        assertFalse(fos5.eligibleFoster(cat2));
+        fos5.addFosterCat(cat2);
+        assertFalse(fos5.eligibleFoster(cat1));
+        assertFalse(fos5.eligibleFoster(cat2));
+
+        fos1.addFosterCat(cat1);
+        fos1.addFosterCat(cat2);
+        assertTrue(fos1.eligibleFoster(cat1));
+        assertFalse(fos1.eligibleFoster(cat2));
+        assertFalse(fos1.eligibleFoster(cat4));
+        fos2.addFosterCat(cat1);
+        assertFalse(fos2.eligibleFoster(cat1));
+        assertFalse(fos2.eligibleFoster(cat2));
+        fos2.addFosterCat(cat2);
+        assertFalse(fos2.eligibleFoster(cat4));
+        assertFalse(fos2.eligibleFoster(cat2));
+        assertFalse(fos2.eligibleFoster(cat1));
+        assertFalse(fos2.eligibleFoster(cat3));
     }
 
     @Test
