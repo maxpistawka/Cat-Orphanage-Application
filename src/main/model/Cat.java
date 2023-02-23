@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Locale;
+
 // Represents a cat with a name, a foster Family if they have one, their breed, their age (in months and year),
 // whether they like cats, whether they like dogs, and whether they are an outdoor cat or not.
 public class Cat {
@@ -12,13 +14,14 @@ public class Cat {
     private Boolean likesDogs;
     private Boolean outdoor;
 
-    //REQUIRES: age > 0 || months > 0
-    //EFFECTS: initializes a cat with all given attributes
+    //REQUIRES: age > 0 || months > 0 and age >= 0 and 12 > months >= 0
+    //EFFECTS: initializes a cat with breed, age (years+months), name, animals they like, and if they are an outdoor cat
+    //         only the first letter of the name is capitalized. initially has no foster.
     public Cat(String name, String breed, int age, int months, boolean likesCats, boolean likesDogs, boolean outdoor) {
-        this.name = name;
+        this.name = name.substring(0, 1).toUpperCase() + name.substring(1);
         fosterFamily = null;
         this.months = months;
-        this.breed = breed;
+        this.breed = breed.substring(0, 1).toUpperCase() + breed.substring(1);
         this.age = age;
         this.likesCats = likesCats;
         this.likesDogs = likesDogs;
@@ -30,33 +33,36 @@ public class Cat {
         String output = name + " is a " + age + " year and " + months + " month old " + breed + " cat. They are an";
         String location;
         if (outdoor) {
-            location = " outdoor";
+            location = " outdoor ";
         } else {
-            location = " indoor";
+            location = " indoor ";
         }
-        String eyes = "cat with beautiful eyes.";
+        String eyes = "cat with beautiful eyes";
         String fostered;
         if (!(fosterFamily == null)) {
-            fostered = "They currently live at one of our amazing foster houses.";
+            fostered = ", currently living with our amazing foster, " + getFosterFamily().getName() + ".";
         } else {
-            fostered = "They currently reside at out shelter in Vancouver looking for a foster.";
+            fostered = ", currently residing at out shelter in Vancouver looking for a foster!";
         }
         return (output + location + eyes + fostered);
     }
 
     //MODIFIES: this
-    //EFFECTS: sets this cat's foster family to the inputted foster unless it already has a foster family
+    //EFFECTS: sets foster family to the inputted foster, adding this cat to the foster family's current cats
+    //         unless it already has a foster family.
     public void assignFoster(Foster f) {
         if (fosterFamily == null) {
             fosterFamily = f;
             fosterFamily.addFosterCat(this);
+            System.out.println("Your cat has been assigned a foster!");
         } else {
             System.out.println("ERROR! " + name + " already has a foster family.");
         }
     }
 
     //MODIFIES: this
-    //EFFECTS: makes this cat have no current foster family
+    //EFFECTS: if no foster, do nothing,  if they have a foster, remove this cat from the fosters data, and remove
+    //         the foster from being this cats foster family
     public void removeFoster() {
         if (!(fosterFamily == null)) {
             fosterFamily.removeFosterCat(this);

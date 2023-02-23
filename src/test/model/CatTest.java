@@ -25,10 +25,10 @@ class CatTest {
 
     @Test
     void testConstructor() {
-        assertEquals("marbles", cat1.getName());
-        assertEquals("lock", cat2.getName());
-        assertEquals("birman", cat1.getBreed());
-        assertEquals("sphynx", cat2.getBreed());
+        assertEquals("Marbles", cat1.getName());
+        assertEquals("Lock", cat2.getName());
+        assertEquals("Birman", cat1.getBreed());
+        assertEquals("Sphynx", cat2.getBreed());
         assertEquals(0, cat1.getAge());
         assertEquals(1, cat2.getAge());
         assertEquals(1, cat1.getMonths());
@@ -54,12 +54,12 @@ class CatTest {
         assertTrue(descrip3.contains("2 year"));
         assertTrue(descrip2.contains("0 month"));
         assertTrue(descrip3.contains("4 month"));
-        assertTrue(descrip2.contains("lock"));
-        assertTrue(descrip3.contains("kitten"));
-        assertTrue(descrip2.contains("sphynx"));
-        assertTrue(descrip3.contains("black"));
+        assertTrue(descrip2.contains("Lock"));
+        assertTrue(descrip3.contains("Kitten"));
+        assertTrue(descrip2.contains("Sphynx"));
+        assertTrue(descrip3.contains("Black"));
         assertTrue(descrip2.contains("Vancouver"));
-        assertTrue(descrip3.contains("foster houses"));
+        assertTrue(descrip3.contains("Max"));
     }
     @Test
     void testAssignAndRemoveFoster() {

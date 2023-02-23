@@ -15,9 +15,10 @@ public class Foster {
     private List<Cat> currentFosterCats;
 
     //REQUIRES: maxFosterCats > 0
-    //EFFECTS: initializes a foster with all required information
+    //EFFECTS: initializes a foster name (only first letter capitalized), if they have cats, if they have dogs,
+    //         the maximum amount of cats they can foster, and sets their initial cats fostering to none
     public Foster(String name, Boolean house, Boolean hasCats, Boolean hasDogs, int maxFosterCats) {
-        this.name = name;
+        this.name = name.substring(0, 1).toUpperCase() + name.substring(1);
         this.house = house;
         this.hasCats = hasCats;
         this.hasDogs = hasDogs;
@@ -35,10 +36,14 @@ public class Foster {
         return req1 && req2 && req3 && req4 && req5;
     }
 
+    // MODIFIES: this, cat
+    // EFFECTS: adds inputted cat into the list of this fosters current foster cats.
     public void addFosterCat(Cat cat) {
         currentFosterCats.add(cat);
     }
 
+    // MODIFIES: this, cat
+    // EFFECTS: removes inputted cat into the list of this fosters current foster cats.
     public void removeFosterCat(Cat cat) {
         currentFosterCats.remove(cat);
     }

@@ -34,8 +34,8 @@ public class FosterTest {
 
     @Test
     void testFosConst() {
-        assertEquals("max", fos1.getName());
-        assertEquals("jj", fos2.getName());
+        assertEquals("Max", fos1.getName());
+        assertEquals("Jj", fos2.getName());
         assertEquals(10, fos1.getMaxFosterCats());
         assertEquals(3, fos2.getMaxFosterCats());
         assertTrue(fos1.getHouse());

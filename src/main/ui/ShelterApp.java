@@ -4,6 +4,7 @@ import model.Cat;
 import model.Foster;
 import model.Shelter;
 
+import javax.management.RuntimeErrorException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -39,12 +40,12 @@ public class ShelterApp {
             }
         }
 
-        System.out.println("\nGoodbye!");
+        System.out.println("\nSee you next time!");
     }
 
     //EFFECTS: displays menu of choices for user actions to choose from
     private void displayMenu() {
-        System.out.println("\nSelect from:");
+        System.out.println("\nChoose action:");
         System.out.println("\tf -> add foster to registry");
         System.out.println("\tc -> add cat to registry");
         System.out.println("\ta -> assign cat to compatible foster");
@@ -56,29 +57,34 @@ public class ShelterApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: processes and executes user action chosen
+    // EFFECTS: processes and executes user action chosen. if user enters invalid input at any point, stop executing
+    //          the code and return to the selection choices
     private void processCommand(String command) {
-        if (command.equals("f")) {
-            doAddFoster();
-        } else if (command.equals("c")) {
-            doAddCat();
-        } else if (command.equals("a")) {
-            doAssign();
-        } else if (command.equals("v")) {
-            doDescription();
-        } else if (command.equals("r")) {
-            doRemoveFoster();
-        } else if (command.equals("dc")) {
-            doDeleteCat();
-        } else if (command.equals("df")) {
-            doDeleteFoster();
-        } else {
-            System.out.println("Selection not valid...");
+        try {
+            if (command.equals("f")) {
+                doAddFoster();
+            } else if (command.equals("c")) {
+                doAddCat();
+            } else if (command.equals("a")) {
+                doAssign();
+            } else if (command.equals("v")) {
+                doDescription();
+            } else if (command.equals("r")) {
+                doRemoveFoster();
+            } else if (command.equals("dc")) {
+                doDeleteCat();
+            } else if (command.equals("df")) {
+                doDeleteFoster();
+            } else {
+                System.out.println("Selection not valid...");
+            }
+        } catch (RuntimeErrorException e) {
+            System.out.print("Invalid input.");
         }
     }
 
     //MODIFIES: this
-    //EFFECTS: removes cat from registry.
+    //EFFECTS: removes cat and it's information from registry and potential fosters.
     private void doDeleteCat() {
         Cat desiredCat = chooseCat();
         shelter.deleteCat(desiredCat);
@@ -86,7 +92,7 @@ public class ShelterApp {
     }
 
     //MODIFIES: this
-    //EFFECTS: removes foster from registry.
+    //EFFECTS: removes foster and it's information from registry and potential fostered cats.
     private void doDeleteFoster() {
         Foster desiredFoster = chooseFoster();
         shelter.deleteFoster(desiredFoster);
@@ -164,9 +170,9 @@ public class ShelterApp {
             }
             int fosterIndex = Integer.parseInt(input.next()) - 1;
             desiredCat.assignFoster(fostersEligible.get(fosterIndex));
-            System.out.println("Your cat has been assigned a foster!");
+        } else {
+            System.out.println("Sorry, no currently available fosters for this cat.");
         }
-        System.out.println("Sorry, no currently available fosters for this cat.");
     }
 
 

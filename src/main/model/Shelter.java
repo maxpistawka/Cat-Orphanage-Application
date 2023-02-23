@@ -39,7 +39,7 @@ public class Shelter {
 
     //REQUIRES: inputted cat must be in cats
     //MODIFIES: this
-    //EFFECTS: removes cat from cats
+    //EFFECTS: removes cat from cats, and removes it from its fosters information if it has a foster
     public void deleteCat(Cat cat) {
         if (!(cat.getFosterFamily() == null)) {
             cat.getFosterFamily().getCurrentFosterCats().remove(cat);
@@ -49,7 +49,7 @@ public class Shelter {
 
     //REQUIRES: inputted foster must be in fosters
     //MODIFIES: this
-    //EFFECTS: removes foster from fosters
+    //EFFECTS: removes foster from fosters and makes all its fostered cats without a foster
     public void deleteFoster(Foster fos) {
         List<Cat> fostersCats = fos.getCurrentFosterCats();
         for (Cat c: fostersCats) {
