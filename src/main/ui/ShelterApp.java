@@ -104,41 +104,50 @@ public class ShelterApp {
     //MODIFIES: this
     //EFFECTS: creates a foster with user given information and adds it to the shelters collection of fosters
     private void doAddFoster() {
-        System.out.print("Insert name of foster: ");
-        String name = input.next().toLowerCase();
-        System.out.print("Insert maximum foster cat capacity: ");
-        int maxFosterCats = Integer.parseInt(input.next());
-        System.out.print("Do they have Cats? (y/n): ");
-        Boolean hasCats = (input.next().toLowerCase().equals("y"));
-        System.out.print("Do they have Dogs? (y/n): ");
-        Boolean hasDogs = (input.next().toLowerCase().equals("y"));
-        System.out.print("Does their residence have outdoor access for the cat? (y/n): ");
-        Boolean house = (input.next().toLowerCase().equals("y"));
-        Foster fosterToAdd = new Foster(name, house, hasCats, hasDogs, maxFosterCats);
-        shelter.addFoster(fosterToAdd);
-        System.out.println("The foster has been added to the registry!");
+        try {
+            System.out.print("Insert name of foster: ");
+            String name = input.next().toLowerCase();
+            System.out.print("Insert maximum foster cat capacity: ");
+            int maxFosterCats = Integer.parseInt(input.next());
+            System.out.print("Do they have Cats? (y/n): ");
+            Boolean hasCats = (input.next().toLowerCase().equals("y"));
+            System.out.print("Do they have Dogs? (y/n): ");
+            Boolean hasDogs = (input.next().toLowerCase().equals("y"));
+            System.out.print("Does their residence have outdoor access for the cat? (y/n): ");
+            Boolean house = (input.next().toLowerCase().equals("y"));
+            Foster fosterToAdd = new Foster(name, house, hasCats, hasDogs, maxFosterCats);
+            shelter.addFoster(fosterToAdd);
+            System.out.println("The foster has been added to the registry!");
+        } catch (RuntimeException e) {
+            System.out.print("Addition failed, invalid input");
+        }
     }
 
     //MODIFIES: this
     //EFFECTS: creates a cat with user given information and adds it to the shelters collection of cats
     private void doAddCat() {
-        System.out.print("Insert name: ");
-        String name = input.next().toLowerCase();
-        System.out.print("Insert breed: ");
-        String breed = input.next().toLowerCase();
-        System.out.print("Insert age (years): ");
-        int age = Integer.parseInt(input.next());
-        System.out.print("Insert age (months): ");
-        int months = Integer.parseInt(input.next());
-        System.out.print("Do they like Cats? (y/n): ");
-        Boolean likesCats = (input.next().toLowerCase().equals("y"));
-        System.out.print("Do they like Dogs? (y/n): ");
-        Boolean likesDogs = (input.next().toLowerCase().equals("y"));
-        System.out.print("Are they an outdoor cat? (y/n): ");
-        Boolean outdoor = (input.next().toLowerCase().equals("y"));
-        Cat catToAdd = new Cat(name, breed, age, months, likesCats, likesDogs, outdoor);
-        shelter.addCat(catToAdd);
-        System.out.println("The cat has been added to the registry!");
+        try {
+            String response;
+            System.out.print("Insert name: ");
+            String name = input.next().toLowerCase();
+            System.out.print("Insert breed: ");
+            String breed = input.next().toLowerCase();
+            System.out.print("Insert age (years): ");
+            int age = Integer.parseInt(input.next());
+            System.out.print("Insert age (months): ");
+            int months = Integer.parseInt(input.next());
+            System.out.print("Do they like Cats? (y/n): ");
+            Boolean likesCats = (input.next().toLowerCase().equals("y"));
+            System.out.print("Do they like Dogs? (y/n): ");
+            Boolean likesDogs = (input.next().toLowerCase().equals("y"));
+            System.out.print("Are they an outdoor cat? (y/n): ");
+            Boolean outdoor = (input.next().toLowerCase().equals("y"));
+            Cat catToAdd = new Cat(name, breed, age, months, likesCats, likesDogs, outdoor);
+            shelter.addCat(catToAdd);
+            System.out.println("The cat has been added to the registry!");
+        } catch (RuntimeException e) {
+            System.out.print("Addition failed, invalid input");
+        }
     }
 
     //MODIFIES: this
