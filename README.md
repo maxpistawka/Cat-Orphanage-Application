@@ -1,11 +1,9 @@
 # Cat Orphanage Application
 For my application, I have decided on making a program that helps in assigning cats into compatible
-foster homes. The program will have multiple functionalities: it will be able to not only allow for assigning cats 
-into compatible foster homes, but it will also be able to display cats already at foster homes, along as the current 
-unbooked times that the foster cats can be visited by potential adopters (this would work by whenever a visit is 
-booked, taking it off the current list of available times that the foster family set). It will also be able to 
-display information purely meant to be shown to adopters about the cats. However, the main purpose of the program is to
-help in determining compatible foster homes for new cats, as well as cats that haven't found a home yet.
+foster homes. The program will have multiple functionalities: it will store all cats belonging to the shelter,
+store all fosters working for the shelter, assign cats into compatible foster homes and so on, aswell as a myriad of
+evolving other functionalities. However, the main purpose of the program is to help in determining compatible
+foster homes for new cats, as well as cats that haven't found a home yet.
 
 <br>
 This application is meant to be used by a foster shelter for cats. Specifically it is meant to be able to help the 
@@ -19,9 +17,8 @@ to automate it, as well as provide even further functionality to aid in helping 
 
 ## User Stories
 
-* As a **User**, I want to be able to *create* a new foster and add it to a list of fosters
-* As a **User**, I want to be able to *create* a new cat and add it to a list of cats, or assign it to a foster
-* As a **User**, I want to be able to *select* a cat and view all the compatible fosters
-* As a **User**, I want to be able to *select* a fostered cat and view a description of the cat as well as
-  the available adoption house times (times for the adopters to come see the cats).
+* As a **User**, I want to be able to *create* a new foster and add it to a list of fosters.
+* As a **User**, I want to be able to *create* a new cat and add it to a list of cats.
+* As a **User**, I want to be able to *select* a cat and view a description of the cat.
+* As a **User**, I want to be able to *select* a cat and assign it one of it's compatible fosters.
 
