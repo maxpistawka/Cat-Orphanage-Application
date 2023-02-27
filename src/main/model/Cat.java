@@ -15,8 +15,8 @@ public class Cat {
     private Boolean outdoor;
 
     //REQUIRES: age > 0 || months > 0 and age >= 0 and 12 > months >= 0
-    //EFFECTS: initializes a cat with breed, age (years+months), name, animals they like, and if they are an outdoor cat
-    //         only the first letter of the name is capitalized. initially has no foster.
+    //EFFECTS: initializes a cat with breed, age (years&months), name, animals they like, and if they are an outdoor
+    //         cat, only the first letter of the name is capitalized. initially has no foster.
     public Cat(String name, String breed, int age, int months, boolean likesCats, boolean likesDogs, boolean outdoor) {
         this.name = name.substring(0, 1).toUpperCase() + name.substring(1);
         fosterFamily = null;
@@ -61,8 +61,8 @@ public class Cat {
     }
 
     //MODIFIES: this
-    //EFFECTS: if no foster, do nothing,  if they have a foster, remove this cat from the fosters data, and remove
-    //         the foster from being this cats foster family
+    //EFFECTS: if this cat has no foster, do nothing,  if they have a foster,
+    //         remove this cat from the fosters data, and remove the foster from being this cats foster family
     public void removeFoster() {
         if (!(fosterFamily == null)) {
             fosterFamily.removeFosterCat(this);

@@ -38,8 +38,8 @@ public class FosterTest {
         assertEquals("Jj", fos2.getName());
         assertEquals(10, fos1.getMaxFosterCats());
         assertEquals(3, fos2.getMaxFosterCats());
-        assertTrue(fos1.getHouse());
-        assertFalse(fos2.getHouse());
+        assertTrue(fos1.getOutdoorAccess());
+        assertFalse(fos2.getOutdoorAccess());
         assertTrue(fos1.getHasCats());
         assertFalse(fos2.getHasDogs());
         assertTrue(fos1.getHasDogs());

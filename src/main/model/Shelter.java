@@ -47,7 +47,7 @@ public class Shelter {
         cats.remove(cat);
     }
 
-    //REQUIRES: inputted foster must be in fosters
+    //REQUIRES: inputted foster must be in this shelters fosters
     //MODIFIES: this
     //EFFECTS: removes foster from fosters and makes all its fostered cats without a foster
     public void deleteFoster(Foster fos) {
