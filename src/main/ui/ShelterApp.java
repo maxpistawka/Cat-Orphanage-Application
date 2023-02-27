@@ -22,6 +22,8 @@ public class ShelterApp {
         runShelterApp();
     }
 
+    // The structure of runShelterApp, displayMenu, and processCommand is derived from the TellerApp given as a guide
+
     // MODIFIES: this
     // EFFECTS: process and utilize user input
     private void runShelterApp() {
@@ -79,6 +81,8 @@ public class ShelterApp {
                 System.out.println("Selection not valid...");
             }
         } catch (RuntimeErrorException e) {
+            System.out.print("Invalid input.");
+        } catch (IndexOutOfBoundsException e) {
             System.out.print("Invalid input.");
         }
     }

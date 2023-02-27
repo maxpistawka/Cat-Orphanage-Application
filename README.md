@@ -17,8 +17,11 @@ to automate it, as well as provide even further functionality to aid in helping 
 
 ## User Stories
 
-* As a **User**, I want to be able to *create* a new foster and add it to a list of fosters.
-* As a **User**, I want to be able to *create* a new cat and add it to a list of cats.
+* As a **User**, I want to be able to *create* a new foster and assign it to my shelter.
+* As a **User**, I want to be able to *create* a new cat and add it to my shelter.
 * As a **User**, I want to be able to *select* a cat and view a description of the cat.
-* As a **User**, I want to be able to *select* a cat and assign it one of it's compatible fosters.
+* As a **User**, I want to be able to *select* a cat at my shelter and assign it to one of it's compatible fosters.
+* As a **User**, I want to be able to *remove* a cat from my shelter.
+* As a **User**, I want to be able to *remove* a foster from my shelter.
+* As a **User**, I want to be able to *unassign* a foster from a cat at my shelter.
 

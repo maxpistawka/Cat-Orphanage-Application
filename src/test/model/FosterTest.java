@@ -60,7 +60,6 @@ public class FosterTest {
         fos5.addFosterCat(cat2);
         assertFalse(fos5.eligibleFoster(cat1));
         assertFalse(fos5.eligibleFoster(cat2));
-
         fos1.addFosterCat(cat1);
         fos1.addFosterCat(cat2);
         assertTrue(fos1.eligibleFoster(cat1));
