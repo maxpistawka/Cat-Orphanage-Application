@@ -24,4 +24,6 @@ to automate it, as well as provide even further functionality to aid in helping 
 * As a **User**, I want to be able to *remove* a cat from my shelter.
 * As a **User**, I want to be able to *remove* a foster from my shelter.
 * As a **User**, I want to be able to *unassign* a foster from a cat at my shelter.
+* As a **User**, I want to be able to *save* my shelter's registry (if I so choose).
+* As a **User**, I want to be able to *load* my shelter from a file (if I so choose).
 
