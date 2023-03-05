@@ -3,22 +3,31 @@ package ui;
 import model.Cat;
 import model.Foster;
 import model.Shelter;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import javax.management.RuntimeErrorException;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
 // Shelter application
 public class ShelterApp {
+    private static final String JSON_STORE = "./data/shelter.json";
     private Shelter shelter;
     private Scanner input;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
-    // EFFECTS: initializes ShelterApp with a brand new empty Shelter, scanner for user input, and then runs
-    //          the shelter app program.
+    // EFFECTS: initializes ShelterApp with a brand new empty Shelter, scanner for user input, a jsonWriter and
+    //          jsonReader with JSON_STORE as their address and then runs the shelter app program.
     public ShelterApp() {
         shelter = new Shelter();
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runShelterApp();
     }
 
@@ -55,6 +64,8 @@ public class ShelterApp {
         System.out.println("\tr -> remove foster from cat");
         System.out.println("\tdc -> remove cat from registry");
         System.out.println("\tdf -> remove foster from registry");
+        System.out.println("\ts -> save your shelter to file");
+        System.out.println("\tl -> load a previous shelter from file");
         System.out.println("\tq -> quit");
     }
 
@@ -77,13 +88,36 @@ public class ShelterApp {
                 doDeleteCat();
             } else if (command.equals("df")) {
                 doDeleteFoster();
-            } else {
-                System.out.println("Selection not valid...");
+            } else if (command.equals("s")) {
+                doSave();
+            } else if (command.equals("l")) {
+                doLoad();
             }
-        } catch (RuntimeErrorException e) {
+        } catch (RuntimeErrorException | IndexOutOfBoundsException e) {
             System.out.print("Invalid input.");
-        } catch (IndexOutOfBoundsException e) {
-            System.out.print("Invalid input.");
+        }
+    }
+
+    // EFFECTS: saves the shelter to file
+    private void doSave() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(shelter);
+            jsonWriter.close();
+            System.out.println("Saved your shelter to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads shelter from file into current program
+    private void doLoad() {
+        try {
+            shelter = jsonReader.read();
+            System.out.println("Loaded your shelter from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 

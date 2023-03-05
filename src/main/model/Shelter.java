@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // Represents a shelter having a list of Cats and a list of Fosters that belong to the shelter
-public class Shelter {
+public class Shelter implements Writable {
     private List<Cat> cats;
     private List<Foster> fosters;
 
@@ -64,5 +68,45 @@ public class Shelter {
 
     public List<Foster> getFosters() {
         return fosters;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("fosters", fostersToJson());
+        json.put("cats", catsToJson());
+        return json;
+    }
+
+    // EFFECTS: returns fosters in this shelter as a JSON array
+    private JSONArray fostersToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Foster f: fosters) {
+            jsonArray.put(f.toJson());
+        }
+
+        return jsonArray;
+    }
+
+    // EFFECTS: returns cats in this shelter as a JSON array
+    private JSONArray catsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Cat c: cats) {
+            jsonArray.put(c.toJson());
+        }
+
+        return jsonArray;
+    }
+
+    // EFFECTS: returns how many cats are in this shelter
+    public int catsSize() {
+        return cats.size();
+    }
+
+    // EFFECTS: returns how many fosters are in this shelter
+    public int fostersSize() {
+        return fosters.size();
     }
 }

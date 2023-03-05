@@ -1,0 +1,40 @@
+{
+    "cats": [
+        {
+            "age (years)": 3,
+            "age (months)": 2,
+            "outdoor cat": true,
+            "likes dogs": true,
+            "foster": "no foster",
+            "name": "Marbles",
+            "breed": "White",
+            "likes cats": true
+        },
+        {
+            "age (years)": 5,
+            "age (months)": 5,
+            "outdoor cat": false,
+            "likes dogs": false,
+            "foster": "Max",
+            "name": "Kilo",
+            "breed": "Spotted",
+            "likes cats": true
+        }
+    ],
+    "fosters": [
+        {
+            "outdoor access": true,
+            "has cats": true,
+            "name": "Max",
+            "max foster cats": 2,
+            "has dogs": false
+        },
+        {
+            "outdoor access": true,
+            "has cats": false,
+            "name": "Paul",
+            "max foster cats": 1,
+            "has dogs": true
+        }
+    ]
+}

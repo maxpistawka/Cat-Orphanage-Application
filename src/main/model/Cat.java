@@ -1,10 +1,13 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.Locale;
 
 // Represents a cat with a name, a foster Family if they have one, their breed, their age (in months and year),
 // whether they like cats, whether they like dogs, and whether they are an outdoor cat or not.
-public class Cat {
+public class Cat implements Writable {
     private String name;
     private Foster fosterFamily;
     private String breed;
@@ -109,4 +112,22 @@ public class Cat {
         return months;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("breed", breed);
+        json.put("age (years)", age);
+        json.put("age (months)", months);
+        json.put("outdoor cat", outdoor);
+        json.put("likes cats", likesCats);
+        json.put("likes dogs", likesDogs);
+        if (!(fosterFamily == null)) {
+            json.put("foster", fosterFamily.getName());
+        } else {
+            json.put("foster", "no foster");
+        }
+
+        return json;
+    }
 }

@@ -1,12 +1,15 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // Represents a foster with a name, whether they have outdoor access, whether they have cats, whether they have dogs,
 // the maximum amount of cats they are willing to foster at one time, and a list of all the cats they are currently
 // fostering
-public class Foster {
+public class Foster implements Writable {
     private String name;
     private Boolean outdoorAccess;
     private Boolean hasCats;
@@ -70,5 +73,16 @@ public class Foster {
 
     public List<Cat> getCurrentFosterCats() {
         return currentFosterCats;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("outdoor access", outdoorAccess);
+        json.put("has cats", hasCats);
+        json.put("has dogs", hasDogs);
+        json.put("max foster cats", maxFosterCats);
+        return json;
     }
 }
