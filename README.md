@@ -27,3 +27,5 @@ to automate it, as well as provide even further functionality to aid in helping 
 * As a **User**, I want to be able to *save* my shelter's registry (if I so choose).
 * As a **User**, I want to be able to *load* my shelter from a file (if I so choose).
 
+ All code design in the persistence package, aswell as the persistence test package is derived and based on the code
+ from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.
