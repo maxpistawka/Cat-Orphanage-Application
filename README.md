@@ -26,8 +26,8 @@ to automate it, as well as provide even further functionality to aid in helping 
 * As a **User**, I want to be able to *unassign* a foster from a cat at my shelter.
 * As a **User**, I want to be able to *save* my shelter's registry (if I so choose).
 * As a **User**, I want to be able to *load* my shelter from a file (if I so choose).
-* As a **User**, I want to be able to *view* my shelter's registry of cats.
-* As a **User**, I want to be able to *view* my shelter's registry of fosters.
+* As a **User**, I want to be able to *view* my shelters registry of cats.
+* As a **User**, I want to be able to *view* my shelters registry of fosters.
 
 # Instructions for Grader
 
