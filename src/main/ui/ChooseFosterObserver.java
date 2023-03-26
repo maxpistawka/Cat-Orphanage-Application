@@ -5,17 +5,17 @@ import java.awt.event.ActionListener;
 
 // Observer for AssignGUI
 
-public class AssignObserver implements ActionListener {
-    AssignGUI assignGUI;
+public class ChooseFosterObserver implements ActionListener {
+    ChooseFosterGUI chooseFosterGUI;
 
     // EFFECTS: assign this gui to parameter
-    public AssignObserver(AssignGUI gui) {
-        this.assignGUI = gui;
+    public ChooseFosterObserver(ChooseFosterGUI gui) {
+        this.chooseFosterGUI = gui;
     }
 
     @Override
     // EFFECTS: execute the action for the observed assignGUI
     public void actionPerformed(ActionEvent e) {
-        assignGUI.action();
+        chooseFosterGUI.action();
     }
 }

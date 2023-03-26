@@ -21,7 +21,7 @@ import java.io.IOException;
 
 // Represents the main GUI for this Shelter App
 public class GUI extends JFrame {
-    private static final int WIDTH = 850;
+    private static final int WIDTH = 800;
     private static final int HEIGHT = 1000;
     private Shelter shelter = new Shelter();
     private JDesktopPane desktop;
@@ -69,7 +69,7 @@ public class GUI extends JFrame {
     // EFFECTS: creates buttons for all user actions
     private void addButtonPanel() {
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(1,7));
+        buttonPanel.setLayout(new GridLayout(2,5));
         buttonPanel.add(new JButton(new AddCat()));
         buttonPanel.add(new JButton(new DisplayCats()));
         buttonPanel.add(new JButton(new AddFoster()));
@@ -77,6 +77,7 @@ public class GUI extends JFrame {
         buttonPanel.add(new JButton(new Saver()));
         buttonPanel.add(new JButton(new Loader()));
         buttonPanel.add(new JButton(new Assigner()));
+        buttonPanel.add(new JButton(new Unassigner()));
 
         controlPanel.add(buttonPanel, BorderLayout.WEST);
     }
@@ -92,7 +93,25 @@ public class GUI extends JFrame {
         // EFFECTS: prompts the user and assigns cat to foster based on given info
         public void actionPerformed(ActionEvent evt) {
             try {
-                new AssignGUI(shelter);
+                new ChooseCatGUI(shelter, false);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "FAILURE", "System Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+
+    private class Unassigner extends AbstractAction {
+
+        Unassigner() {
+            super("Unassign Foster");
+        }
+
+        @Override
+        // EFFECTS: prompts the user and assigns cat to foster based on given info
+        public void actionPerformed(ActionEvent evt) {
+            try {
+                new ChooseCatGUI(shelter, true);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "FAILURE", "System Error",
                         JOptionPane.ERROR_MESSAGE);

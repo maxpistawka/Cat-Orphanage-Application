@@ -12,21 +12,20 @@ import static java.lang.Integer.parseInt;
 /**
  * Represent the GUI for Assigning a foster to a cat
  */
-class AssignGUI extends JFrame {
+class ChooseCatGUI extends JFrame {
     private JFrame frame;
     private JPanel panel;
     private Shelter shelter;
     private JButton button;
-    private JLabel fosterLabel;
     private JLabel catLabel;
-    private JTextField fosterIndex;
     private JTextField catIndex;
-    private int seperation = 0;
     private int labelY = 20;
+    private boolean unassign;
 
     // MODIFIES: this
     // EFFECTS: creates panel for user to submit foster and cat to assign
-    public AssignGUI(Shelter shelter) {
+    public ChooseCatGUI(Shelter shelter, Boolean unassign) {
+        this.unassign = unassign;
         this.shelter = shelter;
         frame = new JFrame();
         panel = new JPanel();
@@ -43,16 +42,9 @@ class AssignGUI extends JFrame {
         catIndex.setBounds(100,20,165,25);
         panel.add(catIndex);
 
-        fosterLabel = new JLabel("Foster Number:");
-        fosterLabel.setBounds(10,60,80,25);
-        panel.add(fosterLabel);
+        makeButton();
 
-        fosterIndex = new JTextField(20);
-        fosterIndex.setBounds(100,60,165,25);
-        panel.add(fosterIndex);
-
-        printNames((List<NameCarrier>)(List<?>) shelter.getCats());
-        printNames((List<NameCarrier>)(List<?>) shelter.getFosters());
+        printNames(shelter.getCats());
 
         frame.setVisible(true);
     }
@@ -62,31 +54,32 @@ class AssignGUI extends JFrame {
     public void makeButton() {
         button = new JButton("Submit");
         button.setBounds(10,100,80,25);
-        button.addActionListener(new AssignObserver(this));
+        button.addActionListener(new ChooseCatObserver(this));
         panel.add(button);
     }
 
     // EFFECTS: prints names of inputted nameCarriers
-    public void printNames(List<NameCarrier> nameCarriers) {
+    public void printNames(List<Cat> cats) {
         int i = 0;
-        for (NameCarrier nc: nameCarriers) {
+        for (Cat cat: cats) {
             i++;
-            JLabel nameLabel = new JLabel(i + ":" + nc.getName());
-            nameLabel.setBounds(10 + seperation,i * 20 + 120,80,25);
+            JLabel nameLabel = new JLabel(i + ":" + cat.getName());
+            nameLabel.setBounds(10,i * 20 + 120,80,25);
             panel.add(nameLabel);
         }
-        seperation += 110;
 
     }
 
     // MODIFIES: this
     // EFFECTS: assigns foster to cat inputted
     public void action() {
-        List<Foster> fosters = shelter.getFosters();
         List<Cat> cats = shelter.getCats();
-        int indexOfFoster = parseInt(fosterIndex.getText()) - 1;
         int indexOfCat = parseInt(catIndex.getText()) - 1;
-        cats.get(indexOfCat).assignFoster(fosters.get(indexOfFoster));
+        if (unassign) {
+            cats.get(indexOfCat).removeFoster();
+        } else {
+            new ChooseFosterGUI(shelter, shelter.getCats().get(indexOfCat));
+        }
         frame.setVisible(false);
     }
 }
