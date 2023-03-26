@@ -20,6 +20,7 @@ public class ShelterApp {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+
     // EFFECTS: initializes ShelterApp with a brand new empty Shelter, scanner for user input, a jsonWriter and
     //          jsonReader with JSON_STORE as their address and then runs the shelter app program.
     public ShelterApp() {

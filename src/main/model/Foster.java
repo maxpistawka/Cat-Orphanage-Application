@@ -3,13 +3,14 @@ package model;
 import org.json.JSONObject;
 import persistence.Writable;
 
+import javax.naming.Name;
 import java.util.ArrayList;
 import java.util.List;
 
 // Represents a foster with a name, whether they have outdoor access, whether they have cats, whether they have dogs,
 // the maximum amount of cats they are willing to foster at one time, and a list of all the cats they are currently
 // fostering
-public class Foster implements Writable {
+public class Foster implements Writable, NameCarrier {
     private String name;
     private Boolean outdoorAccess;
     private Boolean hasCats;
