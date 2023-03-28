@@ -10,7 +10,7 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 
 /**
- * Represent the GUI for Assigning a foster to a cat
+ * Represent the GUI for choosing a foster and then assigning it to previously chosen cat
  */
 class ChooseFosterGUI extends JFrame {
     private JFrame frame;
@@ -21,9 +21,9 @@ class ChooseFosterGUI extends JFrame {
     private JTextField fosterIndex;
     private int labelY = 20;
     private Cat cat;
-    
+
     // MODIFIES: this
-    // EFFECTS: creates panel for user to submit foster and cat to assign
+    // EFFECTS: creates panel for user to choose foster
     public ChooseFosterGUI(Shelter shelter, Cat cat) {
         this.shelter = shelter;
         this.cat = cat;
@@ -71,7 +71,7 @@ class ChooseFosterGUI extends JFrame {
     }
 
     // MODIFIES: this
-    // EFFECTS: assigns foster to cat inputted
+    // EFFECTS: assigns foster to cat
     public void action() {
         List<Foster> fosters = shelter.getFosters();
         int indexOfFoster = parseInt(fosterIndex.getText()) - 1;

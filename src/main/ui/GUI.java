@@ -44,7 +44,6 @@ public class GUI extends JFrame {
 
         addButtonPanel();
 
-
         controlPanel.pack();
         controlPanel.setVisible(true);
         desktop.add(controlPanel);
@@ -108,7 +107,7 @@ public class GUI extends JFrame {
         }
 
         @Override
-        // EFFECTS: prompts the user and assigns cat to foster based on given info
+        // EFFECTS: prompts the user and unassigns cat from any foster it potentially had
         public void actionPerformed(ActionEvent evt) {
             try {
                 new ChooseCatGUI(shelter, true);

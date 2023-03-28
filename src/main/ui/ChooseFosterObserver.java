@@ -3,7 +3,7 @@ package ui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-// Observer for AssignGUI
+// Observer for ChooseFosterGUI
 
 public class ChooseFosterObserver implements ActionListener {
     ChooseFosterGUI chooseFosterGUI;
@@ -14,7 +14,7 @@ public class ChooseFosterObserver implements ActionListener {
     }
 
     @Override
-    // EFFECTS: execute the action for the observed assignGUI
+    // EFFECTS: execute the action for the observed chooseFosterGUI
     public void actionPerformed(ActionEvent e) {
         chooseFosterGUI.action();
     }

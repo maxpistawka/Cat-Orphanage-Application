@@ -3,7 +3,7 @@ package ui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-// Observer for CatGUI
+// Observer for ChooseCatGUI
 public class ChooseCatObserver implements ActionListener {
 
     ChooseCatGUI chooseCatGUI;
@@ -14,7 +14,7 @@ public class ChooseCatObserver implements ActionListener {
     }
 
     @Override
-    // EFFECTS: execute the action for the observed catGUI
+    // EFFECTS: execute the action for the observed chooseCatGUI
     public void actionPerformed(ActionEvent e) {
         chooseCatGUI.action();
     }

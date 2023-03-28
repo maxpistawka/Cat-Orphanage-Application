@@ -10,7 +10,7 @@ import java.util.List;
 import static java.lang.Integer.parseInt;
 
 /**
- * Represent the GUI for Assigning a foster to a cat
+ * Represent the GUI for choosing a cat of the available cats
  */
 class ChooseCatGUI extends JFrame {
     private JFrame frame;
@@ -23,7 +23,7 @@ class ChooseCatGUI extends JFrame {
     private boolean unassign;
 
     // MODIFIES: this
-    // EFFECTS: creates panel for user to submit foster and cat to assign
+    // EFFECTS: creates panel for user to choose cat
     public ChooseCatGUI(Shelter shelter, Boolean unassign) {
         this.unassign = unassign;
         this.shelter = shelter;

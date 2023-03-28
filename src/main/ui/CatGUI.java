@@ -13,12 +13,6 @@ class CatGUI extends JFrame {
     private JPanel panel;
     private Shelter shelter;
     private JLabel nameLabel;
-    private JLabel ageLabel;
-    private JLabel breedLabel;
-    private JLabel monthsLabel;
-    private JLabel likesCatsLabel;
-    private JLabel likesDogsLabel;
-    private JLabel outdoorLabel;
 
     private JTextField userText1;
     private JTextField userText2;
@@ -30,81 +24,74 @@ class CatGUI extends JFrame {
 
     private JButton button;
 
-    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
+    private int labelY = 20;
+
     // EFFECTS: creates panel for user to add new cat
     public CatGUI(Shelter shelter) {
+        addLabelsAndButton(shelter);
+
+        userText1 = new JTextField(20);
+        userText1.setBounds(175,20,165,25);
+        panel.add(userText1);
+
+        userText2 = new JTextField(20);
+        userText2.setBounds(175,60,165,25);
+        panel.add(userText2);
+
+        userText3 = new JTextField(20);
+        userText3.setBounds(175,100,165,25);
+        panel.add(userText3);
+
+        userText4 = new JTextField(20);
+        userText4.setBounds(175,140,165,25);
+        panel.add(userText4);
+
+
+        userText5 = new JTextField(20);
+        userText5.setBounds(175,180,165,25);
+        panel.add(userText5);
+
+        userText6 = new JTextField(20);
+        userText6.setBounds(175,220,165,25);
+        panel.add(userText6);
+
+        userText7 = new JTextField(20);
+        userText7.setBounds(175,260,165,25);
+        panel.add(userText7);
+
+        frame.setVisible(true);
+    }
+
+    // MODIFIES: this
+    // EFFECTS: creates a specific label based on string input and adds it to the panel
+    public void labeler(String s) {
+        nameLabel = new JLabel(s);
+        nameLabel.setBounds(10,labelY,140,25);
+        panel.add(nameLabel);
+        labelY += 40;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: initalizes shelter, frame, panel, and creates labels and button
+    public void addLabelsAndButton(Shelter shelter) {
         this.shelter = shelter;
         frame = new JFrame();
         panel = new JPanel();
         frame.setSize(1000,1000);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.add(panel);
-
         panel.setLayout(null);
-
-        nameLabel = new JLabel("Cat Name:");
-        nameLabel.setBounds(10,20,80,25);
-        panel.add(nameLabel);
-
-        userText1 = new JTextField(20);
-        userText1.setBounds(100,20,165,25);
-        panel.add(userText1);
-
-        breedLabel = new JLabel("Breed:");
-        breedLabel.setBounds(10,60,80,25);
-        panel.add(breedLabel);
-
-        userText2 = new JTextField(20);
-        userText2.setBounds(100,60,165,25);
-        panel.add(userText2);
-
-        ageLabel = new JLabel("Age (years):");
-        ageLabel.setBounds(10,100,80,25);
-        panel.add(ageLabel);
-
-        userText3 = new JTextField(20);
-        userText3.setBounds(100,100,165,25);
-        panel.add(userText3);
-
-        monthsLabel = new JLabel("Age (months):");
-        monthsLabel.setBounds(10,140,80,25);
-        panel.add(monthsLabel);
-
-        userText4 = new JTextField(20);
-        userText4.setBounds(100,140,165,25);
-        panel.add(userText4);
-
-        likesCatsLabel = new JLabel("Likes Cats (y/n):");
-        likesCatsLabel.setBounds(10,180,80,25);
-        panel.add(likesCatsLabel);
-
-        userText5 = new JTextField(20);
-        userText5.setBounds(100,180,165,25);
-        panel.add(userText5);
-
-        likesDogsLabel = new JLabel("Likes Dogs (y/n):");
-        likesDogsLabel.setBounds(10,220,80,25);
-        panel.add(likesDogsLabel);
-
-        userText6 = new JTextField(20);
-        userText6.setBounds(100,220,165,25);
-        panel.add(userText6);
-
-        outdoorLabel = new JLabel("Outdoor cat (y/n):");
-        outdoorLabel.setBounds(10,260,80,25);
-        panel.add(outdoorLabel);
-
-        userText7 = new JTextField(20);
-        userText7.setBounds(100,260,165,25);
-        panel.add(userText7);
-
+        labeler("Cat Name:");
+        labeler("Breed:");
+        labeler("Age(years):");
+        labeler("Age (months):");
+        labeler("Likes Cats (y/n):");
+        labeler("Likes Dogs (y/n):");
+        labeler("Outdoor cat (y/n):");
         button = new JButton("Submit");
         button.setBounds(10,310,80,25);
         button.addActionListener(new CatActionObserver(this));
         panel.add(button);
-
-        frame.setVisible(true);
-
     }
 
     // MODIFIES: this

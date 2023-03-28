@@ -32,10 +32,10 @@ to automate it, as well as provide even further functionality to aid in helping 
 # Instructions for Grader
 
 - You can generate the first required action related to adding Xs to a Y by adding a 
-cat to the Shelter using the Add Cat button after launching the Main method (the first two inputs are strings
-, the next two are ints, the next 3 are y/n). 
-- You can generate the second required action related to adding Xs to a Y by clicking Display Cats after running Main
-and having added at least one cat.
+cat to the Shelter using the Add Cat button after launching, then adding a foster with the add Foster button, then 
+assigning the two (they have to be an eligible foster). 
+- You can generate the second required action related to adding Xs to a Y by then unassigning this foster from the cat
+  (you can verify this by looking at the data folder after saving the new state if you need to).
 - You can locate my visual component by running main as it is on the front page.
 - You can save the state of my application by clicking the save to file button after running main.
 - You can reload the state of my application by clicking the load file button after running main.
