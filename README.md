@@ -32,9 +32,9 @@ to automate it, as well as provide even further functionality to aid in helping 
 # Instructions for Grader
 
 - You can generate the first required action related to adding Xs to a Y by adding a 
-cat to the Shelter using the Add Cat button after launching, then adding a foster with the add Foster button, then 
-assigning the two (they have to be an eligible foster). 
-- You can generate the second required action related to adding Xs to a Y by then unassigning this foster from the cat
+cat to the Shelter using the Add Cat button after launching.
+- You can generate the second required action by then adding a foster with the add foster button (that is compatible),
+and assigning it to the cat with the Assign button
   (you can verify this by looking at the data folder after saving the new state if you need to).
 - You can locate my visual component by running main as it is on the front page.
 - You can save the state of my application by clicking the save to file button after running main.
@@ -42,3 +42,4 @@ assigning the two (they have to be an eligible foster).
 
  All code design in the persistence package, aswell as the persistence test package is derived and based on the code
  from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.
+ The GUI observer code can be attributed to: https://github.students.cs.ubc.ca/CPSC210/AlarmSystem.
