@@ -28,6 +28,8 @@ public class Shelter implements Writable {
     //EFFECTS: adds inputted cat to list of cats belonging to shelter
     public void addCat(Cat c) {
         cats.add(c);
+        EventLog.getInstance().logEvent(
+                new Event("Cat (" + c.getName() + ") added to registry."));
     }
 
     //EFFECTS: returns a list of fosters belonging to the shelter that are eligible to foster the inputted cat

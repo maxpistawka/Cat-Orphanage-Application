@@ -40,6 +40,13 @@ and assigning it to the cat with the Assign button
 - You can save the state of my application by clicking the save to file button after running main.
 - You can reload the state of my application by clicking the load file button after running main.
 
+# Phase 4: Task 2
+```
+Mon Apr 03 00:08:02 PDT 2023
+Cat (Meow) added to registry.
+Mon Apr 03 00:08:15 PDT 2023
+Cat (Meow) assigned to foster, Max.
+```
  All code design in the persistence package, aswell as the persistence test package is derived and based on the code
  from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.
  The GUI observer code can be attributed to: https://github.students.cs.ubc.ca/CPSC210/AlarmSystem.

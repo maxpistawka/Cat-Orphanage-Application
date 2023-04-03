@@ -57,6 +57,8 @@ public class Cat implements Writable, NameCarrier {
         if (fosterFamily == null) {
             fosterFamily = f;
             fosterFamily.addFosterCat(this);
+            EventLog.getInstance().logEvent(
+                    new Event("Cat (" + name + ") assigned to foster, " + f.getName() + "."));
             System.out.println("Your cat has been assigned a foster!");
         } else {
             System.out.println("ERROR! " + name + " already has a foster family.");

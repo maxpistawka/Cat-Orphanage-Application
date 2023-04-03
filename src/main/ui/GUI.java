@@ -1,6 +1,8 @@
 package ui;
 
 import model.Cat;
+import model.Event;
+import model.EventLog;
 import model.Foster;
 import model.Shelter;
 import persistence.JsonReader;
@@ -11,16 +13,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
 // Represents the main GUI for this Shelter App
-public class GUI extends JFrame {
+public class GUI extends JFrame implements WindowListener {
     private static final int WIDTH = 800;
     private static final int HEIGHT = 1000;
     private Shelter shelter = new Shelter();
@@ -32,7 +32,6 @@ public class GUI extends JFrame {
 
     // EFFECTS: creates GUI for this Shelter APP
     public GUI() {
-
         desktop = new JDesktopPane();
         desktop.addMouseListener(new DesktopFocusAction());
         controlPanel = new JInternalFrame("Control Panel", false, false, false, false);
@@ -77,7 +76,7 @@ public class GUI extends JFrame {
         buttonPanel.add(new JButton(new Loader()));
         buttonPanel.add(new JButton(new Assigner()));
         buttonPanel.add(new JButton(new Unassigner()));
-
+        addWindowListener(this);
         controlPanel.add(buttonPanel, BorderLayout.WEST);
     }
 
@@ -270,4 +269,45 @@ public class GUI extends JFrame {
             GUI.this.requestFocusInWindow();
         }
     }
+
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+
+        EventLog el = EventLog.getInstance();
+        for (Event next : el) {
+            System.out.println(next.toString());
+        }
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+
+    }
+
 }
