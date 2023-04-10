@@ -48,7 +48,26 @@ Mon Apr 03 00:08:15 PDT 2023
 Cat (Meow) assigned to foster, Max.
 ```
 # Phase 4: Task 3
---
+Reflection on my work for this project, and the UML diagram created, I can definitely see the large amount of
+refractoring that should and could be done to better the design. First off, I did employ something similar to the 
+observer design. However, in my code I employed it multiple times with multiple observer and observed classes. One thing
+I noted that could be improved was the repetition in the observerer classes. I could have made an observer class that
+all the observers inherited, and gave them a similar functionality as they were all very similar. Or, if I did a bit of
+refractoring I could make all the observers identical, asides from their field of varying GUI types. Doing this, I could
+have made one interface or abstract class that all the GUI classes inherited, and this would make it so that I could
+use it as an apparent type in one observer classs that works for all of my code.
+<br>
+
+Another thing I could consider is the use of a singleton pattern. Currently it wouldn't work in my code, but with a 
+good amount of refractoring, I would be able to make a singleton pattern with my shelter. This would mean I would not
+have to pass my shelter over accross my code, which was very inconvenient. Instead I could have a singleton as a shelter
+since I only have one shelter ever at any time. Something that is less design based would be to create a map for my 
+cats and fosters, as the order of insertion never matters, and it would make finding the cat's based on their name
+(by making the key the name) far more efficient. Finally (although there are far more ways I could improve my design),
+invoking the iterator design would aid me in creating a more abstract design, as for example, the only time I ever 
+iterate through cats is to get their name, so the iterator could be changed to give back a String when cats are
+iterated through.
+
 
  All code design in the persistence package, aswell as the persistence test package is derived and based on the code
  from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.
