@@ -47,6 +47,9 @@ Cat (Meow) added to registry.
 Mon Apr 03 00:08:15 PDT 2023
 Cat (Meow) assigned to foster, Max.
 ```
+# Phase 4: Task 3
+--
+
  All code design in the persistence package, aswell as the persistence test package is derived and based on the code
  from https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.
  The GUI observer code can be attributed to: https://github.students.cs.ubc.ca/CPSC210/AlarmSystem.

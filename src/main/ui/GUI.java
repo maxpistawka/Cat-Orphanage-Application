@@ -22,7 +22,7 @@ import java.io.IOException;
 // Represents the main GUI for this Shelter App
 public class GUI extends JFrame implements WindowListener {
     private static final int WIDTH = 800;
-    private static final int HEIGHT = 1000;
+    private static final int HEIGHT = 650;
     private Shelter shelter = new Shelter();
     private JDesktopPane desktop;
     private JInternalFrame controlPanel;
@@ -276,9 +276,9 @@ public class GUI extends JFrame implements WindowListener {
 
     }
 
+    //EFFECTS: if the window is closed, print out all the events logged to console.
     @Override
     public void windowClosing(WindowEvent e) {
-
         EventLog el = EventLog.getInstance();
         for (Event next : el) {
             System.out.println(next.toString());
@@ -305,9 +305,13 @@ public class GUI extends JFrame implements WindowListener {
 
     }
 
+    //EFFECTS: if the window is closed, print out all the events logged to console.
     @Override
     public void windowDeactivated(WindowEvent e) {
-
+        EventLog el = EventLog.getInstance();
+        for (Event next : el) {
+            System.out.println(next.toString());
+        }
     }
 
 }
