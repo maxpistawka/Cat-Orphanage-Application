@@ -66,7 +66,9 @@ cats and fosters, as the order of insertion never matters, and it would make fin
 (by making the key the name) far more efficient. Finally (although there are far more ways I could improve my design),
 invoking the iterator design would aid me in creating a more abstract design, as for example, the only time I ever 
 iterate through cats is to get their name, so the iterator could be changed to give back a String when cats are
-iterated through.
+iterated through. Additionally, it should be noted that althought the observer
+pattern was implemented here, it doesn't work exactly how an observer pattern would want to. A new
+design that strictly abides the observer pattern with the other refractoring described above should be done.
 
 
  All code design in the persistence package, aswell as the persistence test package is derived and based on the code
