@@ -17,6 +17,7 @@ to automate it, as well as provide even further functionality to aid in helping 
 
 <br>
 
+<br>
 In order to run the application, run Main, either running the console or GUI version. Then you will be able to start
 your registry, adding cats and fosters, and assigning fosters to cats deemed eligible based on the compatability of
 the foster with the cats that are yet to have a foster. Additionally, you can save and upload the information from your
