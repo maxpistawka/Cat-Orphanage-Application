@@ -29,7 +29,7 @@ class ChooseFosterGUI extends JFrame {
         this.cat = cat;
         frame = new JFrame();
         panel = new JPanel();
-        frame.setSize(1000,1000);
+        frame.setSize(350,350);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.add(panel);
         panel.setLayout(null);

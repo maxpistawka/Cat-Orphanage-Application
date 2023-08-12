@@ -15,4 +15,12 @@ I along with this, saw how certain cats were put into less than ideal homes, for
 another cat to live with. I felt like this problem is one that is a fixable one, and there is no better way than
 to automate it, as well as provide even further functionality to aid in helping the orphanage, fosters, and cats.
 
+<br>
+
+In order to run the application, run Main, either running the console or GUI version. Then you will be able to start
+your registry, adding cats and fosters, and assigning fosters to cats deemed eligible based on the compatability of
+the foster with the cats that are yet to have a foster. Additionally, you can save and upload the information from your
+registry from/to a file via the command center, allowing you to keep your registry information without having to 
+reenter after the application has closed. 
+
     

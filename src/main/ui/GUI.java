@@ -31,34 +31,22 @@ public class GUI extends JFrame implements WindowListener {
     private static final String JSON_STORE = "./data/shelter.json";
 
     // EFFECTS: creates GUI for this Shelter APP
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public GUI() {
         desktop = new JDesktopPane();
+        desktop.setBackground(Color.black);
         desktop.addMouseListener(new DesktopFocusAction());
         controlPanel = new JInternalFrame("Control Panel", false, false, false, false);
         controlPanel.setLayout(new BorderLayout());
-
         setContentPane(desktop);
         setTitle("Cat Shelter Registry");
-        setSize(WIDTH, HEIGHT);
-
         addButtonPanel();
-
         controlPanel.pack();
         controlPanel.setVisible(true);
         desktop.add(controlPanel);
-
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         centreOnScreen();
-
-        try {
-            BufferedImage catPic = ImageIO.read(new File("./data/marbles.jpg"));
-            JLabel catPicLabel = new JLabel();
-            catPicLabel.setIcon(new ImageIcon(catPic));
-            catPicLabel.setBounds(0, 0, catPicLabel.getPreferredSize().width, catPicLabel.getPreferredSize().height);
-            add(catPicLabel);
-        } catch (IOException e) {
-            System.out.println("ERROR");
-        }
+        setSize(528, 125);
         setVisible(true);
     }
 

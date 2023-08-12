@@ -3,8 +3,6 @@ package model;
 import org.json.JSONObject;
 import persistence.Writable;
 
-import java.util.Locale;
-
 // Represents a cat with a name, a foster Family if they have one, their breed, their age (in months and year),
 // whether they like cats, whether they like dogs, and whether they are an outdoor cat or not.
 public class Cat implements Writable, NameCarrier {

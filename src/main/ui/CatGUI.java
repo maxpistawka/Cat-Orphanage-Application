@@ -77,7 +77,7 @@ class CatGUI extends JFrame {
         this.shelter = shelter;
         frame = new JFrame();
         panel = new JPanel();
-        frame.setSize(1000,1000);
+        frame.setSize(400,300);
         frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         frame.add(panel);
         panel.setLayout(null);
