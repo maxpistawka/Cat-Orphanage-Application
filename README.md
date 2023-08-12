@@ -16,7 +16,7 @@ another cat to live with. I felt like this problem is one that is a fixable one,
 to automate it, as well as provide even further functionality to aid in helping the orphanage, fosters, and cats.
 
 <br>
-
+<br>
 <br>
 In order to run the application, run Main, either running the console or GUI version. Then you will be able to start
 your registry, adding cats and fosters, and assigning fosters to cats deemed eligible based on the compatability of
